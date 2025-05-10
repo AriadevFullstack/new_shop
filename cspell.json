@@ -1,13 +1,4 @@
 {
-    "language": "en",
-    "words": [
-      
-      "vercel",
-      "admin",
-      "shop",
-      "json",
-      "axios",
-      "localhost"
-    ]
-
+  "language": "en",
+  "words": ["vercel", "admin", "shop", "json", "axios", "localhost"]
 }
