@@ -21,6 +21,3 @@ export const Home = () => {
     </main>
   );
 };
-
-
-

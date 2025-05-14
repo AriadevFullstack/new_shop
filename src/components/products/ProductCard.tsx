@@ -1,32 +1,34 @@
-
-import type { ProductCard as ProductCardInterface} from "./ProductCard.d";
+import type { ProductCard as ProductCardInterface } from "./IProductCard";
 import { Star } from "lucide-react";
 
-export const ProductCard = ({ disCount, price ,productImage, productName,rate }: ProductCardInterface) => {
-
-
-
+export const ProductCard = ({
+  disCount,
+  price,
+  productImage,
+  productName,
+  rate,
+}: ProductCardInterface) => {
   const finalPrice = disCount
     ? Math.round(price - (price * disCount) / 100)
     : price;
 
   return (
     <div className="flex items-center justify-center">
-      <div className="flex flex-col w-[295px] sm:w-[48%] md:w-[295px] h-auto sm:h-[408px] justify-between">
+      <div className="flex h-auto w-[295px] flex-col justify-between sm:h-[408px] sm:w-[48%] md:w-[295px]">
         <div className="mb-4">
           <img
             src={productImage}
             alt={productName}
-            className="w-full h-[298px] object-cover rounded-xl"
+            className="h-[298px] w-full rounded-xl object-cover"
           />
         </div>
 
         <div className="line-clamp-2">
-          <h2 className="mb-2 text-[18px] font-semibold text-gray-900 h-[27px]">
+          <h2 className="mb-2 h-[27px] text-[18px] font-semibold text-gray-900">
             {productName}
           </h2>
 
-          <div className="flex items-center gap-[4px] mb-2 h-[20px]">
+          <div className="mb-2 flex h-[20px] items-center gap-[4px]">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star
                 key={i}
@@ -38,7 +40,7 @@ export const ProductCard = ({ disCount, price ,productImage, productName,rate }:
             ))}
           </div>
 
-          <div className="mb-2 h-[32px] w-full flex items-center gap-2">
+          <div className="mb-2 flex h-[32px] w-full items-center gap-2">
             {disCount > 0 ? (
               <>
                 <span className="text-sm text-gray-400 line-through">
@@ -60,4 +62,3 @@ export const ProductCard = ({ disCount, price ,productImage, productName,rate }:
     </div>
   );
 };
-
