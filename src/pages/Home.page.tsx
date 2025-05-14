@@ -1,19 +1,26 @@
+import { ProductSection } from "../components/products/ProductSection";
+import { getProducts } from "../request/Products";
+import { ProductCard } from "../components/products/ProductCard";
 
-import { Products } from "../data/Products"; 
-import type { ProductType } from "../types/ProductType";
-import ProductCard from "../components/products/ProductCard"; 
+export const Home = () => {
+  const products = getProducts();
 
-export default function Home() {
-  
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">محصولات</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {Products.map((product: ProductType) => (
+    <main className="bg-white">
+      <ProductSection title="New Arrivals" buttonText="View All">
+        {products.slice(0, 4).map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
-      </div>
-    </div>
+      </ProductSection>
+
+      <ProductSection title="Top Selling" buttonText="View All">
+        {products.slice(4, 8).map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </ProductSection>
+    </main>
   );
-}
+};
+
+
 
