@@ -1,9 +1,10 @@
 
-import type { Props } from "../../types/ProductType";
+import type { ProductCard as ProductCardInterface} from "./ProductCard.d";
 import { Star } from "lucide-react";
 
-export const ProductCard = ({ product }: Props) => {
-  const { productName, price, productImage, disCount, rate } = product;
+export const ProductCard = ({ disCount, price ,productImage, productName,rate }: ProductCardInterface) => {
+
+
 
   const finalPrice = disCount
     ? Math.round(price - (price * disCount) / 100)
