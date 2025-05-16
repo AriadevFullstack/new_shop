@@ -4,8 +4,6 @@ import type { SectionProps } from "../../types/ProductType";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
-
-
 export const ProductSection: React.FC<SectionProps> = ({
   title,
   buttonText,
