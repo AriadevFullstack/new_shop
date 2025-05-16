@@ -23,7 +23,7 @@ export const ProductSection: React.FC<SectionProps> = ({
           modules={[Navigation]}
           navigation
           spaceBetween={16}
-          slidesPerView= {1.3}
+          slidesPerView={1.3}
           breakpoints={{
             480: {
               slidesPerView: 2.3,
@@ -44,11 +44,10 @@ export const ProductSection: React.FC<SectionProps> = ({
       </div>
 
       <div className="mt-6 text-center">
-        <button className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition">
+        <button className="rounded-lg bg-black px-4 py-2 text-white transition hover:bg-gray-800">
           {buttonText}
         </button>
       </div>
     </section>
   );
 };
-
