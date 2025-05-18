@@ -10,7 +10,7 @@ export const ProductSection: React.FC<SectionProps> = ({
   children,
 }) => {
   return (
-    <section className="my-10">
+    <section className="container">
       <div className="mb-6 text-center">
         <h2 className="text-xl font-bold">{title}</h2>
       </div>

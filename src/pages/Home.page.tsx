@@ -21,7 +21,7 @@ export const Home = () => {
           <ProductCard key={product.id} {...product} />
         ))}
       </ProductSection>
-      <div>
+      <div className="py-10">
         <ProductBannerGrid title="BROWSE BY dress STYLE" items={banners} />
       </div>
     </main>
