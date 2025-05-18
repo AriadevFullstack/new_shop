@@ -1,9 +1,12 @@
 import { ProductSection } from "../components/products/ProductSection";
 import { getProducts } from "../request/Products";
 import { ProductCard } from "../components/products/ProductCard";
+import { ProductBannerGrid } from "../components/products/ProductBannerGrid";
+import { getProductBanner } from "../request/ProductBanner";
 
 export const Home = () => {
   const products = getProducts();
+  const banners = getProductBanner();
 
   return (
     <main className="bg-white">
@@ -18,6 +21,9 @@ export const Home = () => {
           <ProductCard key={product.id} {...product} />
         ))}
       </ProductSection>
+      <div>
+        <ProductBannerGrid title="BROWSE BY dress STYLE" items={banners} />
+      </div>
     </main>
   );
 };
