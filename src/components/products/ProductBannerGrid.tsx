@@ -9,6 +9,13 @@ export const ProductBannerGrid: React.FC<ProductBannerGridProps> = ({
   title,
   items,
 }) => {
+  const gridStyles = [
+    "lg:col-span-1 lg:row-span-1.5",
+    "lg:col-span-2 lg:row-span-1",
+    "lg:col-span-2 lg:row-start-2 lg:col-start-1",
+    "lg:col-start-3 lg:row-start-2",
+  ];
+
   return (
     <section className="container">
       <div className="mx-auto max-w-[1239px] rounded-xl bg-[#f3f3f3] p-5">
@@ -16,50 +23,22 @@ export const ProductBannerGrid: React.FC<ProductBannerGridProps> = ({
           {title}
         </h2>
 
-        <div className="grid grid-cols-1 grid-rows-4 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
-          <div className="lg:row-span-1.5 relative col-span-1 row-span-1 overflow-hidden rounded-xl lg:col-span-1">
-            <img
-              src={items[0].image}
-              alt={items[0].alt}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute top-4 left-4 text-base font-semibold text-black">
-              {items[0].alt}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
+          {items.map((item, index) => (
+            <div
+              key={item.id || index}
+              className={`relative col-span-1 row-span-1 overflow-hidden rounded-xl ${gridStyles[index] || ""}`}
+            >
+              <img
+                src={item.image}
+                alt={item.alt}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute top-4 left-4 text-base font-semibold text-black">
+                {item.alt}
+              </div>
             </div>
-          </div>
-
-          <div className="relative col-span-1 row-span-1 overflow-hidden rounded-xl lg:col-span-2 lg:row-span-1">
-            <img
-              src={items[1].image}
-              alt={items[1].alt}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute top-4 left-4 text-base font-semibold text-black">
-              {items[1].alt}
-            </div>
-          </div>
-
-          <div className="relative col-span-1 row-span-1 overflow-hidden rounded-xl lg:col-span-2 lg:col-start-1 lg:row-start-2">
-            <img
-              src={items[2].image}
-              alt={items[2].alt}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute top-4 left-4 text-base font-semibold text-black">
-              {items[2].alt}
-            </div>
-          </div>
-
-          <div className="relative col-span-1 row-span-1 overflow-hidden rounded-xl lg:col-start-3 lg:row-start-2">
-            <img
-              src={items[3].image}
-              alt={items[3].alt}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute top-4 left-4 text-base font-semibold text-black">
-              {items[3].alt}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
