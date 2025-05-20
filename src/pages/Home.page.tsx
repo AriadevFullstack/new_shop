@@ -3,6 +3,8 @@ import { getProducts } from "../request/Products";
 import { ProductCard } from "../components/products/ProductCard";
 import { ProductBannerGrid } from "../components/products/ProductBannerGrid";
 import { getProductBanner } from "../request/ProductBanner";
+import { CustomerTestimonials } from "../components/comments/CustomerComments";
+import EmailSubscription from "../components/EmailSubscription";
 
 export const Home = () => {
   const products = getProducts();
@@ -23,6 +25,10 @@ export const Home = () => {
       </ProductSection>
       <div className="py-10">
         <ProductBannerGrid title="BROWSE BY dress STYLE" items={banners} />
+      </div>
+      <div>
+        <CustomerTestimonials />
+        <EmailSubscription />
       </div>
     </main>
   );
